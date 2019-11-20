@@ -51,14 +51,23 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5S-JQ-q3n">
                                         <rect key="frame" x="0.0" y="0.0" width="68" height="68"/>
                                         <state key="normal" backgroundImage="Layout 1"/>
+                                        <connections>
+                                            <action selector="tapLayoutOne" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oj9-O1-xbv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYn-G4-bg6">
                                         <rect key="frame" x="76" y="0.0" width="68" height="68"/>
-                                        <state key="normal" image="Selected" backgroundImage="Layout 2"/>
+                                        <state key="normal" backgroundImage="Layout 2"/>
+                                        <connections>
+                                            <action selector="tapLayoutTwo" destination="BYZ-38-t0r" eventType="touchUpInside" id="kkK-gO-eyu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7C-G7-Yl1">
                                         <rect key="frame" x="152" y="0.0" width="68" height="68"/>
                                         <state key="normal" backgroundImage="Layout 3"/>
+                                        <connections>
+                                            <action selector="tapLayoutThree" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mcy-qf-JbR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -195,6 +204,15 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="buttonBottomLeft" destination="IV8-la-4K2" id="VoR-gZ-wRh"/>
+                        <outlet property="buttonBottomRight" destination="bfx-DF-7Nu" id="VMR-o8-oID"/>
+                        <outlet property="buttonLayoutOne" destination="z5S-JQ-q3n" id="cfw-06-y55"/>
+                        <outlet property="buttonLayoutThree" destination="s7C-G7-Yl1" id="lKq-mr-Iu8"/>
+                        <outlet property="buttonLayoutTwo" destination="TYn-G4-bg6" id="9qu-ao-TjU"/>
+                        <outlet property="buttonTopLeft" destination="v9Z-Zg-y5U" id="Q5D-b5-H9c"/>
+                        <outlet property="buttonTopRight" destination="KYc-PR-Zxa" id="LC8-40-kcG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -209,6 +227,5 @@
         <image name="Layout 2" width="26.666666030883789" height="26.666666030883789"/>
         <image name="Layout 3" width="26.666666030883789" height="26.666666030883789"/>
         <image name="Plus" width="13.333333015441895" height="13.333333015441895"/>
-        <image name="Selected" width="26.666666030883789" height="26.666666030883789"/>
     </resources>
 </document>

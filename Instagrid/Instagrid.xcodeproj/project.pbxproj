@@ -63,6 +63,7 @@
 		020EBEB4238568EF00448FCF /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
+				020EBEC3238568F300448FCF /* Info.plist */,
 				020EBECB2385692600448FCF /* Supporting files */,
 				020EBECA2385690F00448FCF /* Controller */,
 				020EBEC92385690700448FCF /* Vue */,
@@ -95,7 +96,6 @@
 				020EBECC23856AB100448FCF /* Delm-Medium.otf */,
 				020EBECE23856ABA00448FCF /* ThirstySoftRegular.otf */,
 				020EBEC0238568F300448FCF /* LaunchScreen.storyboard */,
-				020EBEC3238568F300448FCF /* Info.plist */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
