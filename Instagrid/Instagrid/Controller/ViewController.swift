@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var buttonReference = UIButton()
+    @IBOutlet weak var editPictureView: UIView!
+    enum move { case out, back }
+    
     @IBOutlet weak var buttonLayoutOne: UIButton!
     @IBOutlet weak var buttonLayoutTwo: UIButton!
     @IBOutlet weak var buttonLayoutThree: UIButton!
@@ -18,6 +21,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var buttonTopRight: UIButton!
     @IBOutlet weak var buttonBottomLeft: UIButton!
     @IBOutlet weak var buttonBottomRight: UIButton!
+    
+    @IBOutlet weak var swipeLeftLabel: UILabel!
+    @IBOutlet weak var swipeUpLabel: UILabel!
+    
     
     @IBAction func tapLayoutOne() {
         buttonTopLeft.isHidden = true
@@ -68,9 +75,84 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
     
+    func createGesture() {
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeMovement))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeMovement))
+        swipeUp.direction = .up
+        swipeLeft.direction = .left
+        if swipeUpLabel.isHidden == false {
+            editPictureView.addGestureRecognizer(swipeUp)
+        } else {
+            editPictureView.addGestureRecognizer(swipeLeft)
+        }
+    }
+    
+    @objc func swipeMovement(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .up {
+            transformViewUp(.out)
+            presentActivityController(UIView.asImage(self.editPictureView)(), orientation: "portrait")
+        } else {
+            transformViewUp(.out)
+            presentActivityController(UIView.asImage(self.editPictureView)(), orientation: "landscape")
+        }
+    }
+    
+    func transformViewUp(_ instant: move) {
+        switch instant {
+        case .out:
+            UIView.animate(withDuration: 0.5) {
+                self.editPictureView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
+            }
+        case .back:
+            UIView.animate(withDuration: 0.5) {
+                self.editPictureView.transform = .identity
+            }
+        }
+    }
+    
+    func transformViewLeft(_ instant: move) {
+        switch instant {
+        case .out:
+            UIView.animate(withDuration: 0.5) {
+                self.editPictureView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
+            }
+        case .back:
+            UIView.animate(withDuration: 0.5) {
+                self.editPictureView.transform = .identity
+            }
+        }
+    }
+    
+    func presentActivityController(_ image: UIImage, orientation: String) {
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        switch orientation {
+        case "portrait":
+            activityController.completionWithItemsHandler = {(UIActivityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+                self.transformViewUp(.back)
+            }
+        case "landscape":
+            activityController.completionWithItemsHandler = {(UIActivityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+                self.transformViewLeft(.back)
+            }
+        default:
+            break
+        }
+        present(activityController, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tapLayoutTwo()
+        createGesture()
+    }
+}
+
+extension UIView {
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
     }
 }
 
