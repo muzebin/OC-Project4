@@ -52,21 +52,21 @@
                                         <rect key="frame" x="0.0" y="0.0" width="68" height="68"/>
                                         <state key="normal" backgroundImage="Layout 1"/>
                                         <connections>
-                                            <action selector="tapLayoutOne" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oj9-O1-xbv"/>
+                                            <action selector="tapLayoutOne" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbL-tE-J2V"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYn-G4-bg6">
                                         <rect key="frame" x="76" y="0.0" width="68" height="68"/>
                                         <state key="normal" backgroundImage="Layout 2"/>
                                         <connections>
-                                            <action selector="tapLayoutTwo" destination="BYZ-38-t0r" eventType="touchUpInside" id="kkK-gO-eyu"/>
+                                            <action selector="tapLayoutTwo" destination="BYZ-38-t0r" eventType="touchUpInside" id="bTL-NP-xlp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7C-G7-Yl1">
                                         <rect key="frame" x="152" y="0.0" width="68" height="68"/>
                                         <state key="normal" backgroundImage="Layout 3"/>
                                         <connections>
-                                            <action selector="tapLayoutThree" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mcy-qf-JbR"/>
+                                            <action selector="tapLayoutThree" destination="BYZ-38-t0r" eventType="touchUpInside" id="dTF-wO-3uE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -104,11 +104,17 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
                                                         <color key="backgroundColor" red="0.94207912680000006" green="0.94223684070000002" blue="0.94205832479999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="tapChoosePicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uFk-DM-hgz"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYc-PR-Zxa">
                                                         <rect key="frame" x="153" y="0.0" width="145" height="145"/>
                                                         <color key="backgroundColor" red="0.94207912680000006" green="0.94223684070000002" blue="0.94205832479999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="tapChoosePicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iXs-FJ-NEF"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -119,11 +125,17 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="298" height="145"/>
                                                         <color key="backgroundColor" red="0.94207912680000006" green="0.94223684070000002" blue="0.94205832479999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="tapChoosePicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mCY-ch-cBe"/>
+                                                        </connections>
                                                     </button>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfx-DF-7Nu">
                                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="145"/>
                                                         <color key="backgroundColor" red="0.94207912680000006" green="0.94223684070000002" blue="0.94205832479999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="tapChoosePicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Vb-1e-hS6"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

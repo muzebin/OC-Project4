@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var buttonReference = UIButton()
     @IBOutlet weak var buttonLayoutOne: UIButton!
     @IBOutlet weak var buttonLayoutTwo: UIButton!
     @IBOutlet weak var buttonLayoutThree: UIButton!
@@ -46,6 +47,25 @@ class ViewController: UIViewController {
         buttonLayoutOne.setImage(nil, for: .normal)
         buttonLayoutTwo.setImage(nil, for: .normal)
         buttonLayoutThree.setImage(UIImage(named: "Selected"), for: .normal)
+    }
+    
+    @IBAction func tapChoosePicture(_ sender: UIButton) {
+        buttonReference = sender
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pictureChosen = info[.originalImage] as? UIImage {
+            buttonReference.setImage(pictureChosen, for: .normal)
+        }
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
