@@ -80,19 +80,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeMovement))
         swipeUp.direction = .up
         swipeLeft.direction = .left
-        if swipeUpLabel.isHidden == false {
-            editPictureView.addGestureRecognizer(swipeUp)
-        } else {
-            editPictureView.addGestureRecognizer(swipeLeft)
-        }
+        editPictureView.addGestureRecognizer(swipeUp)
+        editPictureView.addGestureRecognizer(swipeLeft)
     }
     
     @objc func swipeMovement(_ sender: UISwipeGestureRecognizer) {
-        if sender.direction == .up {
+        if sender.direction == .up && swipeUpLabel.isHidden == false {
             transformViewUp(.out)
             presentActivityController(UIView.asImage(self.editPictureView)(), orientation: "portrait")
-        } else {
-            transformViewUp(.out)
+        } else if sender.direction == .left && swipeLeftLabel.isHidden == false {
+            transformViewLeft(.out)
             presentActivityController(UIView.asImage(self.editPictureView)(), orientation: "landscape")
         }
     }
