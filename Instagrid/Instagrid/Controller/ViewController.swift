@@ -75,7 +75,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
     
-    func createGesture() {
+    private func createGesture() {
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeMovement))
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeMovement))
         swipeUp.direction = .up
@@ -94,7 +94,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    func transformViewUp(_ instant: move) {
+    private func transformViewUp(_ instant: move) {
         switch instant {
         case .out:
             UIView.animate(withDuration: 0.5) {
@@ -107,7 +107,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    func transformViewLeft(_ instant: move) {
+    private func transformViewLeft(_ instant: move) {
         switch instant {
         case .out:
             UIView.animate(withDuration: 0.5) {
@@ -120,7 +120,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    func presentActivityController(_ image: UIImage, orientation: String) {
+    private func presentActivityController(_ image: UIImage, orientation: String) {
         let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         switch orientation {
         case "portrait":
